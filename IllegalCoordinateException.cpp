@@ -9,16 +9,18 @@ class IllegalCoordinateException : public exception {
 
 public:
 	int a, b;
+	string p;
 
 	IllegalCoordinateException(int x, int y) {
 		a = x;
 		b = y;
+
 	} 
 
-	virtual const string theCoordinate() const throw()
+	const char* theCoordinate() const throw()
 	{
-		string p = a + "," + b;
-		return p;
+		cout << a + "," + b << p;
+		return p.c_str();
 	}
 
 };
