@@ -26,6 +26,11 @@ public:
 		mat = new char[num*num];
 		for (int i = 0; i < length*length; i++) { mat[i] = '.'; }
 	}
+	Board(Board& temp) {
+		length = temp.length;
+		mat = new char[length*length];
+		for (int i = 0; i < length*length; i++) { mat[i] = temp.mat[i]; }
+	}
 	~Board() {
 		delete[] mat;
 	}
@@ -61,17 +66,16 @@ public:
 	}
 
 	Board& operator = (const Board& c) {
-		if (this == &c) { return *this; }
 		if (length != c.length) {
-			
 			delete[] mat;
 			mat = new char[c.length*c.length];
-			length = c.length;
 		}
+		length = c.length;
 		for (int i = 0; i < c.length*c.length; i++) {
-			mat[i] = c.mat[i];
+			this->mat[i] = c.mat[i];
 		}
 		return *this;
+		
 	}
 
 	friend ostream &operator<<(ostream &output, const Board &temp) {
