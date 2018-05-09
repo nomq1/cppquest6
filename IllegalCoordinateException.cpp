@@ -14,6 +14,7 @@ public:
 		a = x;
 		b = y;
 	} 
+
 	virtual const char* theCoordinate() const throw()
 	{
 		return (a + "," + b);

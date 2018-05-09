@@ -1,6 +1,6 @@
 
 #include <iostream>
-#include<string>
+#include <string>
 #include <utility>     
 #include "IllegalCharException.cpp"
 
@@ -22,12 +22,15 @@ public:
 
 			*x = c;
 		}
-		//else { throw IllegalCharException(c); }
+		else { throw IllegalCharException(c); }
 		return c;
 	}
 
+	operator char() const { return *x; }
+
+
 	friend ostream &operator<<(ostream &output, const Cell &temp) {
-		output << temp.c;
+		output << temp.x;
 		return output;
 	}
 };

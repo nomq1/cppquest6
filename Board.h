@@ -1,6 +1,6 @@
 #pragma once
 #include <iostream>
-#include<string>
+#include <string>
 #include <utility>     
 #include "IllegalCoordinateException.cpp"
 #include "Cell.h"
@@ -27,15 +27,17 @@ public:
 		for (int i = 0; i < length*length; i++) { mat[i] = '.'; }
 	}
 
-	char& operator [](initializer_list<int> p)
+	Cell operator [](initializer_list<int> p)
 	{
 		int x = *p.begin();
 		int y = *(p.begin() + 1);
 		int a = returnsyntax(x, y);
-		if (a > (length-1)*(length-1)) { throw IllegalCoordinateException(x, y); }
-		else {
-			return mat[a];
+		if (a > (length-1)*(length-1)) { 
+			throw IllegalCoordinateException(x, y); 
 		}
+		
+		return Cell(&mat[a]);
+		
 	}
 	int returnsyntax(const int x, const int y) {	
 		return this->length*x + y;
