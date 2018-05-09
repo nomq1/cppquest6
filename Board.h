@@ -69,7 +69,6 @@ public:
 			length = c.length;
 		}
 		for (int i = 0; i < c.length*c.length; i++) {
-			cout << mat[i] << endl;
 			mat[i] = c.mat[i];
 		}
 		return *this;
