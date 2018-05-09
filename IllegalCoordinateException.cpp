@@ -15,9 +15,10 @@ public:
 		b = y;
 	} 
 
-	virtual const char* theCoordinate() const throw()
+	virtual const string theCoordinate() const throw()
 	{
-		return (a + "," + b);
+		string p = a + "," + b;
+		return p;
 	}
 
 };

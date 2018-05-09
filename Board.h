@@ -26,13 +26,15 @@ public:
 		mat = new char[num*num];
 		for (int i = 0; i < length*length; i++) { mat[i] = '.'; }
 	}
-
+	~Board() {
+		delete[] mat;
+	}
 	Cell operator [](initializer_list<int> p)
 	{
 		int x = *p.begin();
 		int y = *(p.begin() + 1);
 		int a = returnsyntax(x, y);
-		if (a > (length-1)*(length-1)) { 
+		if (x > length-1 || y > length-1) { 
 			throw IllegalCoordinateException(x, y); 
 		}
 		
@@ -51,12 +53,28 @@ public:
 		}
 		else if (c == '.') { 
 			for (int i = 0; i < length*length; i++) {
-				mat[i] = '.'; 
+				this->mat[i] = '.'; 
 			} 
+			return *this;
 		}
 		else { throw IllegalCharException(c); }
 	}
-	
+
+	Board& operator = (const Board& c) {
+		if (this == &c) { return *this; }
+		if (length != c.length) {
+			
+			delete[] mat;
+			mat = new char[c.length*c.length];
+			length = c.length;
+		}
+		for (int i = 0; i < c.length*c.length; i++) {
+			cout << mat[i] << endl;
+			mat[i] = c.mat[i];
+		}
+		return *this;
+	}
+
 	friend ostream &operator<<(ostream &output, const Board &temp) {
 		string p = "";
 		int counter = 0;

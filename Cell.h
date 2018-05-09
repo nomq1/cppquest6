@@ -23,14 +23,14 @@ public:
 			*x = c;
 		}
 		else { throw IllegalCharException(c); }
-		return c;
+		return *x;
 	}
 
 	operator char() const { return *x; }
 
 
 	friend ostream &operator<<(ostream &output, const Cell &temp) {
-		output << temp.x;
+		output << *temp.x;
 		return output;
 	}
 };

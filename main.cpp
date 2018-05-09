@@ -56,7 +56,6 @@ int main() {
 	cout << board1 << endl;  // Shows a board with an X at top-left and O at bottom-right 
 
 		cout << "Good bye!" << endl;
-
 	int s;
 	cin >> s;
 	return 0;
