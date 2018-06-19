@@ -8,8 +8,8 @@ Board.o: Board.cpp Board.h
 
 
 IllegalCoordinateException.o : IllegalCoordinateException.cpp
- $(CXX) $(CPPFLAGS) --compile IllegalCoordinateException.cpp -o IllegalCoordinateException.o
+	$(CXX) $(CPPFLAGS) --compile IllegalCoordinateException.cpp -o IllegalCoordinateException.o
 
-IllegalCharException.o: IllegalCharException.cpp
-(CXX) $(CPPFLAGS) --compile IllegalCharException.cpp -o IllegalCharException.o
+IllegalCharException.o: IllegalCharException.cpp	
+	(CXX) $(CPPFLAGS) --compile IllegalCharException.cpp -o IllegalCharException.o
 
